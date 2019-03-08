@@ -1,0 +1,191 @@
+// ------------------------------
+//   CREATE GLOBAL VARIABLES
+//-----------------------------
+var answers = ["smash ball", "ganondorf", "link", "mario", "pikachu", "luigi", "kirby", "jigglypuff", "donkey kong", "bowser", "king k rool", "hyrule", "corneria", "mushroom kingdom", "pokemon stadium", "ness", "lucas", "marth", "roy", "ken", "ryu", "little mac", "jungle japes", "olimar", "wii fit trainer", "megaman", "incineroar", "fox", "captain falcon", "snake", "young link", "villager", "lucina", "king dedede", "sonic", "dark pit", "duck hunt", "inkling", "pokeball", "assist trophy", "golden hammer", "party ball", "masahiro sakurai", "nintendo", "peach", "master hand", "crazy hand", "lucario", "simon", "bayonetta", "yoshi", "samus", "dark samus", "pirahna plant"];
+var goalAnswer;
+var unguessedWord = [];
+var guessedArray = [];
+var winCount = 0;
+var lossCount = 0;
+var allowedGuesses = 15;
+var guessesLeft = allowedGuesses;
+var newWordNeeded = true;           // Only true if: onLoad  of Game, allowedGuesses = 0, or unguessedWord.includes("_" === false)
+
+// Variables linking the JS items to the HTML DocumentID objects.
+var unguessedWordText = document.getElementById("unguessedWord-text");
+var guessesText = document.getElementById("guesses-text");
+var guessesLeftText = document.getElementById("guessesLeft-text");
+var winCountText = document.getElementById("winCount-text");
+var lossCountText = document.getElementById("lossCount-text");
+
+
+// -------------------------------
+// FUNCTIONS
+// -------------------------------
+
+// fucntion used to generate a new goal word + create the unguessedWord array.
+function generateWord() {
+    // Use random number generation to select a goal word for goalAnswer from answers array
+    console.log("Generating a new word: ");
+    goalAnswer = answers[Math.floor((Math.random() * answers.length) + 1)];
+    console.log(goalAnswer);
+
+    //iterate through goalAnswer to generate the array of "_" where non-space-bar characters are - push them into unguessedWord array.
+    for (i = 0; i < goalAnswer.length; i++) {
+        var character = goalAnswer.charAt(i);
+        if (character == "\ ") {
+            unguessedWord.push("-");
+        } else {
+            unguessedWord.push("_");
+        }
+        console.log(unguessedWord.join(" "));
+    }
+    // set newWordNeeded to false - Tell the game that a new word is not needed anymore
+    newWordNeeded = false;
+}
+
+// function to reset a round 
+//  Will reset the 'guessedArray' and 'guessesLeft' variables
+// USES:
+//      generateWord();    
+function newRound() {
+    dividers(1);
+    console.log("Starting a new round please see process below:");
+    unguessedWord = [];
+    guessedArray = [];
+    guessesLeft = allowedGuesses;
+    generateWord();
+    
+    // update the arrays
+    unguessedWordText.textContent = unguessedWord.join(" ");
+    guessesText.textContent = guessedArray.join(", ");
+    guessesLeftText.textContent = guessesLeft;
+    dividers(1);
+} 
+
+// function to start a new game
+// Will reset the 'winCount' variable    
+// USES:
+//      generateWord();
+//      newRound();
+function newGame() {
+    winCount = 0;
+    lossCount = 0;
+    newRound();
+    dividers(9);
+    console.log("New Game Started!");
+}
+
+// fucntion to show me all the values stored in global variables
+function showAll() {
+    console.log(goalAnswer);
+    console.log(unguessedWord);
+    console.log(guessedArray);
+    console.log(winCount);
+    console.log(lossCount);
+    console.log(allowedGuesses);
+    console.log(guessesLeft);
+    console.log(newWordNeeded);
+}
+
+// fucntion to give break dividers
+function dividers(num) {
+    for (k = 0; k < num; k++) {
+        console.log("----------------------------");
+    }
+}
+
+
+// -------------------------------
+//         GAME SETUP
+// -------------------------------
+newGame();
+
+
+// -------------------------------
+//        GAME BEGINS!
+// -------------------------------
+
+// Begin to run JS on keyPress
+document.onkeyup = function(pressEvent) {
+    //Check if letter pressed is a legal char between 'a' - 'z'
+    var letterGuess = pressEvent.key;
+    console.log(letterGuess);
+
+    if (letterGuess >= "a" || letterGuess <= "z") {
+        console.log("valid");
+        
+        // check if letterGuess has already been guessed by user!
+        //      if so: continue - see if 'letterGuess' is in the 'goalAnswer' 
+        //      else: skipe
+        if(!(guessedArray.includes(letterGuess))) {
+            // check if goalAnswer contains the char in letterGuess
+            //      if so: modify Guessed word array
+            //      else: decrement guessesLeft
+            if (goalAnswer.includes(letterGuess)) {
+                console.log("correct guess!");
+                //iterate through goalAnswer to see which letters match the guessedLetter
+                for (j = 0; j < goalAnswer.length; j++) {
+                    //check if letter in string match the guessed letter
+                    //      if so: replace "_" in unguessedWord array with the letterGuess
+                    //      else: do nothing and continue on
+                    if (goalAnswer.charAt(j) === letterGuess) {
+                        unguessedWord[j] = letterGuess;
+                        console.log("put " + letterGuess + " into unguessedWord array at index " + j);
+                    }
+                }
+            } else {
+                console.log("incorrect guess...");
+                guessesLeft--;
+            }
+        }
+        else {
+            console.log("You've already typed this before! - Choose another.")
+        }
+        //add guessed letter to guessedArray
+        guessedArray.push(letterGuess);
+        console.log("Lastly, put " + letterGuess + " into guessedArray array");        
+    }
+
+    // update and show the following variables in HTML Doc
+    //      unguessedWord
+    //      guessedArray
+    //      guessesLeft    
+    unguessedWordText.textContent = unguessedWord.join(" ");
+    guessesText.textContent = guessedArray.join(", ");
+    guessesLeftText.textContent = guessesLeft;
+
+
+    // Check if user needs new word: i.e. won or lost
+    if (!(unguessedWord.includes("_"))) {
+        //win scenario
+        winCount++;
+        console.log("ROUND WIN");
+        // update and show the following variables in HTML Doc
+        //      winCount
+        winCountText.textContent = winCount;
+
+        //Check if User won 10 Rounds
+        if(winCount == 10) {
+            //Congratualtions EndGame SCENARIO
+            console.log("---- WINNER WINNER CHICKEN DINNER!!");
+        }
+
+        // Start a new round
+        newRound();
+    } else if (guessesLeft === 0) {
+        // lose scenario
+        lossCount++;
+        console.log("ROUND LOST");
+        // update show the following variables in HTML Doc
+        //      lossCount
+        lossCountText.textContent = lossCount;
+
+        // start a new Round
+        newRound();
+    }   // In this non-existent ELSE: 
+        //      User STILL has not fully guessed the word.
+        //      User STILL has non-zero amount of Guesses left.
+        // Result: 'Just do nothing and continue'
+}
+
