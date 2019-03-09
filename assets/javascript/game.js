@@ -5,7 +5,7 @@
 
 //var answers = ["link", "dark pit", "wii fit trainer"];
 
-var answers = ["k"];
+var answers = ["k", "kl"];
 
 var goalAnswer;
 var unguessedWord = [];
@@ -322,7 +322,7 @@ document.onkeyup = function(pressEvent) {
         // Play round Loss sound
         playRoundLoss();
         //Check if User lost 10 Rounds
-        if(lossCount == 1) {
+        if(lossCount == 10) {
             //Congratualtions EndGame SCENARIO
             console.log("---- LOSER OF 10 ROUNDS ----!!");
             // Play the sound for losing Game/10 rounds
