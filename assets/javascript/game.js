@@ -24,16 +24,23 @@ var guessesLeftText = document.getElementById("guessesLeft-text");
 var winCountText = document.getElementById("winCount-text");
 var lossCountText = document.getElementById("lossCount-text");
 
-// Variables used for Add-Ons like Sound Effects + Music
+// Variables used for Auditory Add-Ons:
+//  Background Music
 var backgroundMusic;
 var battlefieldArray = ["battlefieldThemeSong","finalDestSong"];
 var battlefieldStageNum = -1;
 var marioArray = ["throwbackMarioSong","marioGustyGalaxySong","yoshiIslandSong","luigiMansionSong"];
 var marioStageNum = -1;
-/*var hyruleArray = ["","","","",""];
-var pokemonArray = ["","","","",""];
-var wiistudioArray = ["","","","",""];
+var hyruleArray = ["legendOfZeldaThemeSong","hyruleMainSong","gerudoValleySong"];
+var hyruleStageNum = -1;
+var pokemonArray = ["pokemonMainSong","pokemonCenterSong","pokemonBattleDPSong","pokemonBattleRSSong","pokemonGymRBSong"];
+var pokemonStageNum = -1;
+var wiiStudioArray = ["wiiFitMenuSong","miiChannelSong"];
+var wiiStudioStageNum = -1;
+var wilyStageSong = "megamanSong";
 // var wilyCastArray = ["","","","",""]; - Not needed bc 1 song only.*/
+
+//  Sound Effects
 var correctSnd = document.getElementById("correctSndText");
 var incorrectSnd = document.getElementById("incorrectSndText");
 var roundWinSnd = document.getElementById("roundWinSndText");
@@ -152,7 +159,31 @@ function changeBackgroundMusic(stage) {
         }
         backgroundMusic = document.getElementById(marioArray[marioStageNum]);
         backgroundMusic.volume = (0.4);
-    }    
+    }  else if (stage == "zeldaStage") {
+        hyruleStageNum++;
+        if (hyruleStageNum == hyruleArray.length) {
+            hyruleStageNum = 0;
+        }
+        backgroundMusic = document.getElementById(hyruleArray[hyruleStageNum]);
+        backgroundMusic.volume = (0.4);
+    }  else if (stage == "pokemonStage") {
+        pokemonStageNum++;
+        if (pokemonStageNum == pokemonArray.length) {
+            pokemonStageNum = 0;
+        }
+        backgroundMusic = document.getElementById(pokemonArray[pokemonStageNum]);
+        backgroundMusic.volume = (0.4);
+    }  else if (stage == "wiiStudioStage") {
+        wiiStudioStageNum++;
+        if (wiiStudioStageNum == wiiStudioArray.length) {
+            wiiStudioStageNum = 0;
+        }
+        backgroundMusic = document.getElementById(wiiStudioArray[wiiStudioStageNum]);
+        backgroundMusic.volume = (0.4);
+    }   else if (stage == "wilyStage") {
+        backgroundMusic = document.getElementById(wilyStageSong);
+        backgroundMusic.volume = (0.4);
+    }   
     backgroundMusic.play();
 } 
 
