@@ -5,29 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Added link to the jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Javascript link/call can be found at bottom of document before closing body tag -->
 
     <title>Kevin's Word Guess Game - Super Smash Bros. Edition</title>
-</head>
-
-<body>
-    <h1>Super Smash Bros Game</h1>
-
-    <div>Word to guess: <span id="unguessedWord-text">Nothing yet...</span></div>
-
-    <div>Letters guessed already: <span id="guesses-text">Nothing yet...</span></div>
-
-    <div>Guesses Left: <span id="guessesLeft-text">26?</span></div>
-
-    <div>Wins: <span id="winCount-text">0</span></div>
-
-    <div>Losses: <span id="lossCount-text">0</span></div>
-
-    <hr>
 
     <!-- All the sound effects -->
     <audio id="correctSndText">
@@ -142,14 +127,31 @@
         <source src="assets/audio/MegaMan2Medley.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+</head>
 
+<body>
+    <h1>Super Smash Bros Game</h1>
+
+    <div>Word to guess: <span id="unguessedWord-text">Nothing yet...</span></div>
+
+    <div>Letters guessed already: <span id="guesses-text">Nothing yet...</span></div>
+
+    <div>Guesses Left: <span id="guessesLeft-text">26?</span></div>
+
+    <div>Wins: <span id="winCount-text">0</span></div>
+
+    <div>Losses: <span id="lossCount-text">0</span></div>
+
+    <hr>
+
+    
 
     <p>Click the buttons to play or pause the audio.</p>
 
     <button onclick="changeBackgroundMusic('battlefield')" type="button">Play BattleField Songs</button>
     <button onclick="changeBackgroundMusic('marioStage')" type="button">Play Mario Songs</button>
     <button onclick="changeBackgroundMusic('zeldaStage')" type="button">Play Zelda Songs</button>
-    <button onclick="changeBackgroundMusic('pokemonstage')" type="button">Play Pokemon Songs</button>
+    <button onclick="changeBackgroundMusic('pokemonStage')" type="button">Play Pokemon Songs</button>
     <button onclick="changeBackgroundMusic('wiiStudioStage')" type="button">Play Wii Fit Songs</button>
     <button onclick="changeBackgroundMusic('wilyStage')" type="button">Play Mega-Man Songs</button>
     <button onclick="pauseMusic()" type="button">Pause Background Music</button>
