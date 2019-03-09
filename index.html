@@ -1,30 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Javascript link/call can be found at bottom of document before closing body tag -->
 
     <title>Kevin's Word Guess Game - Super Smash Bros. Edition</title>
 </head>
+
 <body>
     <h1>Super Smash Bros Game</h1>
 
     <div>Word to guess: <span id="unguessedWord-text">Nothing yet...</span></div>
 
     <div>Letters guessed already: <span id="guesses-text">Nothing yet...</span></div>
-    
+
     <div>Guesses Left: <span id="guessesLeft-text">26?</span></div>
-    
+
     <div>Wins: <span id="winCount-text">0</span></div>
 
     <div>Losses: <span id="lossCount-text">0</span></div>
-   
-    
+
+    <hr>
+
+    <!-- All the sound effects -->
+    <audio id="correctSndText">
+        <source src="assets/audio/se_common_coin.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="incorrectSndText">
+        <source src="assets/audio/se_common_sword_hit_m.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="roundWinSndText">
+        <source src="assets/audio/ssbm_dr_mario_06_luigi_02_mario_01.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="roundLossSndText">
+        <source src="assets/audio/ssbm_dr_mario_07_luigi_03_mario_02.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="gameWinSongSndText">
+        <source src="assets/audio/CourseClearSuperMarioWorld.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="gameLostSongSndText">
+        <source src="assets/audio/SuperMarioWorldOSTLoseLife.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="congratsSndText">
+        <source src="assets/audio/snd_se_narration_Congratulation.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="defeatSndText">
+        <source src="assets/audio/snd_se_narration_Defeated.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="continueSndText">
+        <source src="assets/audio/snd_se_Narration_Continue.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- All the background songs for the page -->
+    <!-- Stage: Battlefield Songs -->
+    <audio id="battlefieldThemeSong">
+        <source src="assets/audio/SuperSmashBrosUltimateBATTLEFIELDTHEME.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="finalDestSong">
+        <source src="assets/audio/FINALDESTINATIONTHEME.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Stage: Mario - Golden Plains Songs -->
+    <audio id="throwbackMarioSong">
+        <source src="assets/audio/ThrowbackGalaxySuperMarioGalaxy2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="marioGustyGalaxySong">
+        <source src="assets/audio/GustyGardenGalaxySuperMarioGalaxy.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="yoshiIslandSong">
+        <source src="assets/audio/FlowerGardenYoshiIsland.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="luigiMansionSong">
+        <source src="assets/audio/LuigiMansionTheme.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <p>Click the buttons to play or pause the audio.</p>
+
+    <button onclick="changeBackgroundMusic('battlefield')" type="button">Play BattleField</button>
+    <button onclick="changeBackgroundMusic('marioStage')" type="button">Play Mario Songs</button>
+    <button onclick="pauseMusic()" type="button">Pause Background Music</button>
+
+
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
+
 </html>

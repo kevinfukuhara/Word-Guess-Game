@@ -1,7 +1,12 @@
 // ------------------------------
 //   CREATE GLOBAL VARIABLES
 //-----------------------------
-var answers = ["smash ball", "ganondorf", "link", "mario", "pikachu", "luigi", "kirby", "jigglypuff", "donkey kong", "bowser", "king k rool", "hyrule", "corneria", "mushroom kingdom", "pokemon stadium", "ness", "lucas", "marth", "roy", "ken", "ryu", "little mac", "jungle japes", "olimar", "wii fit trainer", "megaman", "incineroar", "fox", "captain falcon", "snake", "young link", "villager", "lucina", "king dedede", "sonic", "dark pit", "duck hunt", "inkling", "pokeball", "assist trophy", "golden hammer", "party ball", "masahiro sakurai", "nintendo", "peach", "master hand", "crazy hand", "lucario", "simon", "bayonetta", "yoshi", "samus", "dark samus", "pirahna plant"];
+//var answers = ["smash ball", "ganondorf", "link", "mario", "pikachu", "luigi", "kirby", "jigglypuff", "donkey kong", "bowser", "king k rool", "hyrule", "corneria", "mushroom kingdom", "pokemon stadium", "ness", "lucas", "marth", "roy", "ken", "ryu", "little mac", "jungle japes", "olimar", "wii fit trainer", "megaman", "incineroar", "fox", "captain falcon", "snake", "young link", "villager", "lucina", "king dedede", "sonic", "dark pit", "duck hunt", "inkling", "pokeball", "assist trophy", "golden hammer", "party ball", "masahiro sakurai", "nintendo", "peach", "master hand", "crazy hand", "lucario", "simon", "bayonetta", "yoshi", "samus", "dark samus", "pirahna plant"];
+
+//var answers = ["link", "dark pit", "wii fit trainer"];
+
+var answers = ["k"];
+
 var goalAnswer;
 var unguessedWord = [];
 var guessedArray = [];
@@ -10,6 +15,7 @@ var lossCount = 0;
 var allowedGuesses = 15;
 var guessesLeft = allowedGuesses;
 var newWordNeeded = true;           // Only true if: onLoad  of Game, allowedGuesses = 0, or unguessedWord.includes("_" === false)
+var legalGuess = /^[a-z]+$/;
 
 // Variables linking the JS items to the HTML DocumentID objects.
 var unguessedWordText = document.getElementById("unguessedWord-text");
@@ -17,6 +23,26 @@ var guessesText = document.getElementById("guesses-text");
 var guessesLeftText = document.getElementById("guessesLeft-text");
 var winCountText = document.getElementById("winCount-text");
 var lossCountText = document.getElementById("lossCount-text");
+
+// Variables used for Add-Ons like Sound Effects + Music
+var backgroundMusic;
+var battlefieldArray = ["battlefieldThemeSong","finalDestSong"];
+var battlefieldStageNum = -1;
+var marioArray = ["throwbackMarioSong","marioGustyGalaxySong","yoshiIslandSong","luigiMansionSong"];
+var marioStageNum = -1;
+/*var hyruleArray = ["","","","",""];
+var pokemonArray = ["","","","",""];
+var wiistudioArray = ["","","","",""];
+// var wilyCastArray = ["","","","",""]; - Not needed bc 1 song only.*/
+var correctSnd = document.getElementById("correctSndText");
+var incorrectSnd = document.getElementById("incorrectSndText");
+var roundWinSnd = document.getElementById("roundWinSndText");
+var roundLossSnd = document.getElementById("roundLossSndText");
+var gameWinSongSnd = document.getElementById("gameWinSongSndText");
+var gameLostSongSnd = document.getElementById("gameLostSongSndText");
+var congratsSnd = document.getElementById("congratsSndText");
+var defeatSnd = document.getElementById("defeatSndText");
+var continueSnd = document.getElementById("continueSndText");
 
 
 // -------------------------------
@@ -27,8 +53,12 @@ var lossCountText = document.getElementById("lossCount-text");
 function generateWord() {
     // Use random number generation to select a goal word for goalAnswer from answers array
     console.log("Generating a new word: ");
-    goalAnswer = answers[Math.floor((Math.random() * answers.length) + 1)];
+    var randNum = Math.floor((Math.random() * answers.length));
+    console.log(randNum);
+    console.log(answers[randNum]);
+    goalAnswer = answers[randNum];
     console.log(goalAnswer);
+    console.log("goalAnswer.length: " + goalAnswer.length);
 
     //iterate through goalAnswer to generate the array of "_" where non-space-bar characters are - push them into unguessedWord array.
     for (i = 0; i < goalAnswer.length; i++) {
@@ -95,10 +125,111 @@ function dividers(num) {
     }
 }
 
+//-------------------------------
+//      AESTHETIC FUNCTIONS
+//-------------------------------
 
+// fucntion to play background music
+function changeBackgroundMusic(stage) {
+    // pause any music playing
+    if (backgroundMusic != null) {
+        backgroundMusic.pause();
+    }
+    
+    // Song Selection Family is selected based on parameter
+    // song select number are the *StageNum's - need to incremented then checked to ensure not over the array size
+    if (stage == "battlefield"){
+        battlefieldStageNum++;
+        if (battlefieldStageNum == battlefieldArray.length) {
+            battlefieldStageNum = 0;
+        }
+        backgroundMusic = document.getElementById(battlefieldArray[battlefieldStageNum]);
+        backgroundMusic.volume = (0.4);
+    } else if (stage == "marioStage") {
+        marioStageNum++;
+        if (marioStageNum == marioArray.length) {
+            marioStageNum = 0;
+        }
+        backgroundMusic = document.getElementById(marioArray[marioStageNum]);
+        backgroundMusic.volume = (0.4);
+    }    
+    backgroundMusic.play();
+} 
+
+// to pause background music
+function pauseMusic() {
+    backgroundMusic.pause();
+}
+
+// functions for sound effects
+function playCorrectSnd() {
+    // Play the sound of a correct Guess
+    setTimeout(() => {
+        correctSnd.play();
+    }, 0);
+}
+
+function playIncorrectSnd() {
+    // Play the sound of an incorrect Guess
+    setTimeout(() => {
+        incorrectSnd.play();
+    }, 0);
+}
+
+function playRoundWin() {
+    // Play the upgrade/round win sound
+    setTimeout(() => {
+        roundWinSnd.play();
+    }, 800);
+}
+
+function playRoundLoss() {
+    // Play the upgrade/round LOSS sound
+    setTimeout(() => {
+        roundLossSnd.play();
+    }, 700);
+}
+
+function playGameWin() {
+    //Stop Background music if there is any
+    if (backgroundMusic != null) {
+        backgroundMusic.pause();
+    }
+    // Play congrats sound + song
+    setTimeout(() => {
+        congratsSnd.play();
+    }, 2400);
+    setTimeout(() => {
+        gameWinSongSnd.play();
+    }, 4900);
+}
+
+function playGameLost() {
+    //Stop Background music if there is any
+    if (backgroundMusic != null) {
+        backgroundMusic.pause();
+    }
+    // play defeat + losing life song
+    setTimeout(() => {
+        defeatSnd.play();
+    }, 2000);
+    setTimeout(() => {
+        gameLostSongSnd.play();
+    }, 2700);
+}
+
+function continueScreen() {
+    // Played after the winning or losing life functions
+
+}
+
+
+//------------------------------------
+//----------------------------------
 // -------------------------------
 //         GAME SETUP
 // -------------------------------
+//----------------------------------
 newGame();
 
 
@@ -112,7 +243,8 @@ document.onkeyup = function(pressEvent) {
     var letterGuess = pressEvent.key;
     console.log(letterGuess);
 
-    if (letterGuess >= "a" || letterGuess <= "z") {
+    // if (letterGuess >= 'a' || letterGuess <= 'z') {
+    if (letterGuess.match(legalGuess)) {
         console.log("valid");
         
         // check if letterGuess has already been guessed by user!
@@ -134,9 +266,12 @@ document.onkeyup = function(pressEvent) {
                         console.log("put " + letterGuess + " into unguessedWord array at index " + j);
                     }
                 }
+                playCorrectSnd();
             } else {
                 console.log("incorrect guess...");
                 guessesLeft--;
+
+                playIncorrectSnd();
             }
         }
         else {
@@ -164,11 +299,15 @@ document.onkeyup = function(pressEvent) {
         // update and show the following variables in HTML Doc
         //      winCount
         winCountText.textContent = winCount;
+        // Play round win sound
+        playRoundWin();
 
         //Check if User won 10 Rounds
         if(winCount == 10) {
             //Congratualtions EndGame SCENARIO
-            console.log("---- WINNER WINNER CHICKEN DINNER!!");
+            console.log("---- WINNER WINNER CHICKEN DINNER -----!!");
+            // Play the sound for winning Game/10 rounds
+            playGameWin();
         }
 
         // Start a new round
@@ -180,6 +319,15 @@ document.onkeyup = function(pressEvent) {
         // update show the following variables in HTML Doc
         //      lossCount
         lossCountText.textContent = lossCount;
+        // Play round Loss sound
+        playRoundLoss();
+        //Check if User lost 10 Rounds
+        if(lossCount == 1) {
+            //Congratualtions EndGame SCENARIO
+            console.log("---- LOSER OF 10 ROUNDS ----!!");
+            // Play the sound for losing Game/10 rounds
+            playGameLost();
+        }
 
         // start a new Round
         newRound();
