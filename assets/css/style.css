@@ -1,0 +1,10 @@
+.stageIcon {
+    height: 100px;
+    /* width: 20vw; */
+    width: calc(100%/8);
+    text-align: center;
+    color:white;
+    background-color: black;
+    margin: 5px;
+    display: inline-block;
+}

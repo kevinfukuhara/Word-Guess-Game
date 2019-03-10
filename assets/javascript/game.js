@@ -70,7 +70,7 @@ function generateWord() {
     //iterate through goalAnswer to generate the array of "_" where non-space-bar characters are - push them into unguessedWord array.
     for (i = 0; i < goalAnswer.length; i++) {
         var character = goalAnswer.charAt(i);
-        if (character == "\ ") {
+        if (character == " ") {
             unguessedWord.push("-");
         } else {
             unguessedWord.push("_");
@@ -199,6 +199,62 @@ function changeBackgroundMusic(stage) {
 function pauseMusic() {
     backgroundMusic.pause();
 }
+
+// Stage Select Functions
+$(".stageLink").on("click", function(){
+    console.log("trying to play music");
+    console.log($(this).attr("data-stage"));
+
+    var stage = $(this).attr("data-stage");
+    // pause any music playing
+    if (backgroundMusic != null) {
+        backgroundMusic.pause();
+    }
+
+    // Add Case Statements!
+    switch(stage) {
+        case "battlefieldStageSel":
+            battlefieldStageNum++;
+            if (battlefieldStageNum == battlefieldArray.length) {
+                battlefieldStageNum = 0;
+            }
+            backgroundMusic = document.getElementById(battlefieldArray[battlefieldStageNum]);
+            break;
+        case "marioStageSel":
+            marioStageNum++;
+            if (marioStageNum == marioArray.length) {
+                marioStageNum = 0;
+            }
+            backgroundMusic = document.getElementById(marioArray[marioStageNum]);
+            break;
+        case "hyruleStageSel":
+            hyruleStageNum++;
+            if (hyruleStageNum == hyruleArray.length) {
+                hyruleStageNum = 0;
+            }
+            backgroundMusic = document.getElementById(hyruleArray[hyruleStageNum]);
+            break;
+        case "pokemonStageSel":
+            pokemonStageNum++;
+            if (pokemonStageNum == pokemonArray.length) {
+                pokemonStageNum = 0;
+            }
+            backgroundMusic = document.getElementById(pokemonArray[pokemonStageNum]);
+            break;
+        case "wiiStudioStageSel":
+            wiiStudioStageNum++;
+            if (wiiStudioStageNum == wiiStudioArray.length) {
+                wiiStudioStageNum = 0;
+            }
+            backgroundMusic = document.getElementById(wiiStudioArray[wiiStudioStageNum]);
+            break;
+        case "wilyStageSel":
+            backgroundMusic = document.getElementById(wilyStageSong);
+    }
+    // Lower the volume and PLAY the actual music
+    backgroundMusic.volume = (0.4);
+    backgroundMusic.play();
+});
 
 // functions for sound effects
 function playCorrectSnd() {
