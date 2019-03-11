@@ -173,9 +173,74 @@
         </div>
     </div>
 
+    <!-- box for the game with stage + current round stats -->
+    <div class="col-sm-12" id="gameMainStage">
+        <img src="assets/images/battlefield1.jpg" id="selectedStage" alt="Selected Stage Background">
+
+        <div class="currentRoundTextBox" id="wordToGuess">Word to guess: <strong><span id="unguessedWord-text">Nothing
+                    yet...</span></strong>
+        </div>
+        <div class="currentRoundTextBox" id="userGuess">You guessed: <strong><span id="userGuess-text">Nothing
+                    yet...</span></strong>
+
+        </div>
+        <div class="currentRoundTextBox" id="userGuessesArray">Letters guessed already: <strong><span
+                    id="guesses-text">Nothing yet...</span></strong>
+        </div>
+        <div class="currentRoundTextBox" id="guessesLeft">Guesses Left: <strong><span
+                    id="guessesLeft-text">26?</span></strong>
+        </div>
+
+    </div>
+
+    <!-- box for game's historical stats + instructions -->
+    <div class="col-sm-12" id="recordBox">
+        <div id="winLossBox" class="slantBox">
+            <div id="winBox">
+                <div class="straightenOut">
+                    Wins: <span id="winCount-text">0</span>
+                </div>
+            </div>
+
+            <div id="lossBox">
+                <div class="straightenOut">
+                    Losses: <span id="lossCount-text">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="ruleSet">
+            <p style="font-size: 22px">
+                Rules:
+            </p>
+            <p>
+                You are tasked with guessing the word I have generated for you. To begin, please press any letter
+                from the alphabet. You will not be punished for selecting the same letter twice, nor a
+                non-alphabetical letter. It'll only delay your reward - more on that later...
+            </p>
+            <p>
+                You may select any stage of your choice and choose from the selection of music I have curated for
+                your gaming pleasure. Some stages have multiple songs, so go ahead and press one more than once!
+            </p>
+            <p>
+                On to rewards: you will find a neat little surprise once you have reached 5 wins!
+                Conversely, if you acquire 5 losses... Well, I have faith in you.
+            </p>
+            <p>
+                Have fun, and enjoy!
+            </p>
+        </div>
+    </div>
+
+    </div>
+
     <div class="container">
         <!-- box for Stage Select buttons -->
         <div class="col-sm-12" id="stageBox">
+
+            <div class="col-sm-12 musicInstruction slantBox">
+                <p class="straightenOut">Please Select a Stage to Play On!</p>
+            </div>
 
             <div class="stageIcon stageLink slantBox col-xl-12" data-stage="battlefieldStageSel">
                 <div class="stageWhole">
@@ -245,75 +310,19 @@
             </div>
         </div>
 
-        <!-- box for the game with stage + current round stats -->
-        <div class="col-sm-12" id="gameMainStage">
-            <img src="assets/images/battlefield1.jpg" id="selectedStage" alt="Selected Stage Background">
-
-            <div class="currentRoundTextBox" id="wordToGuess">Word to guess: <strong><span
-                        id="unguessedWord-text">Nothing
-                        yet...</span></strong>
+        <!-- footer for title Logo when large -->
+        <!-- SAVING FOR WHEN I TRY HARDER IN ADDING RESPONSIVE BEHAVIOR -->
+        <!-- <div class="container footerTitle">
+            <div class="col-sm-12" id="smashLogoBoxFooter">
+                <img src="assets/images/Super_Smash_Bros_2018_logo.png" id="smashLogoFooter"
+                    alt="Super Smash Bros Ultimate Logo">
             </div>
-            <div class="currentRoundTextBox" id="userGuess">You guessed: <strong><span id="userGuess-text">Nothing
-                        yet...</span></strong>
-
+            <div class="col-sm-12" id="wordGuessLogoBoxFooter">
+                <h1 id="gameTitle">Word-Guess Game</h1>
             </div>
-            <div class="currentRoundTextBox" id="userGuessesArray">Letters guessed already: <strong><span
-                        id="guesses-text">Nothing yet...</span></strong>
-            </div>
-            <div class="currentRoundTextBox" id="guessesLeft">Guesses Left: <strong><span
-                        id="guessesLeft-text">26?</span></strong>
-            </div>
+        </div> -->
 
-        </div>
-
-        <!-- box for game's historical stats + instructions -->
-        <div class="col-sm-12" id="recordBox">
-            <div id="winLossBox" class="slantBox">
-                <div id="winBox">
-                    <div class="straightenOut">
-                    Wins: <span id="winCount-text">0</span>
-                    </div>
-                </div>
-
-                <div id="lossBox">
-                        <div class="straightenOut">
-                    Losses: <span id="lossCount-text">0</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="ruleSet">
-                <p style="font-size: 22px">
-                    Rules:
-                </p>
-                <p>
-                    You are tasked with guessing the word I have generated for you. To begin, please press any letter
-                    from the alphabet. You will not be punished for selecting the same letter twice, nor a
-                    non-alphabetical letter. It'll only delay your reward - more on that later...
-                </p>
-                <p>
-                    You may select any stage of your choice and choose from the selection of music I have curated for
-                    your gaming pleasure. Some stages have multiple songs, so go ahead and press one more than once!
-                </p>
-                <p>
-                    On to rewards: you will find a neat little surprise once you have reached 10 wins!
-                    Conversely, if you acquire 10 losses... Well, I have faith in you.
-                </p>
-                <p>
-                    Have fun, and enjoy!
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-
-    <!-- footer for title Logo when large -->
-    <div class="container footerTitle">
-
-    </div>
-
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
 </html>

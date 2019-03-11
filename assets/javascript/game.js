@@ -27,6 +27,9 @@ var lossCountText = document.getElementById("lossCount-text");
 var userGuessText = document.getElementById("userGuess-text");
 
 // Variables used for Auditory Add-Ons:
+//  Main Stage picture variable
+// var stagePic = document.getElementById("selectedStage");
+
 //  Background Music
 var backgroundMusic;
 var battlefieldArray = ["battlefieldThemeSong","finalDestSong"];
@@ -219,6 +222,7 @@ $(".stageLink").on("click", function(){
     // Add Case Statements!
     switch(stage) {
         case "battlefieldStageSel":
+            $("#selectedStage").attr("src","assets/images/stage/43-battlefield1.jpg");
             battlefieldStageNum++;
             if (battlefieldStageNum == battlefieldArray.length) {
                 battlefieldStageNum = 0;
@@ -226,6 +230,7 @@ $(".stageLink").on("click", function(){
             backgroundMusic = document.getElementById(battlefieldArray[battlefieldStageNum]);
             break;
         case "marioStageSel":
+            $("#selectedStage").attr("src","assets/images/stage/43-goldenplainsbattlefield.jpg");
             marioStageNum++;
             if (marioStageNum == marioArray.length) {
                 marioStageNum = 0;
@@ -233,6 +238,7 @@ $(".stageLink").on("click", function(){
             backgroundMusic = document.getElementById(marioArray[marioStageNum]);
             break;
         case "hyruleStageSel":
+            $("#selectedStage").attr("src","assets/images/stage/43-hyrulecastlebattlefield.jpg");    
             hyruleStageNum++;
             if (hyruleStageNum == hyruleArray.length) {
                 hyruleStageNum = 0;
@@ -240,6 +246,7 @@ $(".stageLink").on("click", function(){
             backgroundMusic = document.getElementById(hyruleArray[hyruleStageNum]);
             break;
         case "pokemonStageSel":
+            $("#selectedStage").attr("src","assets/images/stage/43-pokemonstadiumLg.jpg");
             pokemonStageNum++;
             if (pokemonStageNum == pokemonArray.length) {
                 pokemonStageNum = 0;
@@ -247,6 +254,7 @@ $(".stageLink").on("click", function(){
             backgroundMusic = document.getElementById(pokemonArray[pokemonStageNum]);
             break;
         case "wiiStudioStageSel":
+            $("#selectedStage").attr("src","assets/images/stage/43-wiifitstudio.jpg");    
             wiiStudioStageNum++;
             if (wiiStudioStageNum == wiiStudioArray.length) {
                 wiiStudioStageNum = 0;
@@ -254,6 +262,7 @@ $(".stageLink").on("click", function(){
             backgroundMusic = document.getElementById(wiiStudioArray[wiiStudioStageNum]);
             break;
         case "wilyStageSel":
+            $("#selectedStage").attr("src","assets/images/stage/43wilycastle.jpg");    
             backgroundMusic = document.getElementById(wilyStageSong);
     }
     // Lower the volume and PLAY the actual music
@@ -416,7 +425,7 @@ document.onkeyup = function(pressEvent) {
         playRoundWin();
 
         //Check if User won 10 Rounds
-        if(winCount == 3) {
+        if(winCount == 5) {
             //Congratualtions EndGame SCENARIO
             console.log("---- WINNER WINNER CHICKEN DINNER -----!!");
             // Play the sound for winning Game/10 rounds
@@ -440,7 +449,7 @@ document.onkeyup = function(pressEvent) {
         // Play round Loss sound
         playRoundLoss();
         //Check if User lost 10 Rounds
-        if(lossCount == 3) {
+        if(lossCount == 5) {
             //Congratualtions EndGame SCENARIO
             console.log("---- LOSER OF 10 ROUNDS ----!!");
             // Play the sound for losing Game/10 rounds
