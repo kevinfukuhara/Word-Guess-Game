@@ -93,10 +93,12 @@ function newRound() {
     unguessedWord = [];
     guessedArray = [];
     guessesLeft = allowedGuesses;
+    userGuess = "Nothing yet..."
     generateWord();
     
     console.log(unguessedWord.join(" "));
     // update the arrays
+    userGuessText.textContent = userGuess;
     unguessedWordText.textContent = unguessedWord.join(" ");
     guessesText.textContent = guessedArray.join(", ");
     guessesLeftText.textContent = guessesLeft;
@@ -148,55 +150,55 @@ function dividers(num) {
 //-------------------------------
 
 // fucntion to play background music
-function changeBackgroundMusic(stage) {
-    // pause any music playing
-    if (backgroundMusic != null) {
-        backgroundMusic.pause();
-    }
+// function changeBackgroundMusic(stage) {
+//     // pause any music playing
+//     if (backgroundMusic != null) {
+//         backgroundMusic.pause();
+//     }
     
-    // Song Selection Family is selected based on parameter
-    // song select number are the *StageNum's - need to incremented then checked to ensure not over the array size
-    if (stage == "battlefield"){
-        battlefieldStageNum++;
-        if (battlefieldStageNum == battlefieldArray.length) {
-            battlefieldStageNum = 0;
-        }
-        backgroundMusic = document.getElementById(battlefieldArray[battlefieldStageNum]);
-        backgroundMusic.volume = (0.4);
-    } else if (stage == "marioStage") {
-        marioStageNum++;
-        if (marioStageNum == marioArray.length) {
-            marioStageNum = 0;
-        }
-        backgroundMusic = document.getElementById(marioArray[marioStageNum]);
-        backgroundMusic.volume = (0.4);
-    }  else if (stage == "zeldaStage") {
-        hyruleStageNum++;
-        if (hyruleStageNum == hyruleArray.length) {
-            hyruleStageNum = 0;
-        }
-        backgroundMusic = document.getElementById(hyruleArray[hyruleStageNum]);
-        backgroundMusic.volume = (0.4);
-    }  else if (stage == "pokemonStage") {
-        pokemonStageNum++;
-        if (pokemonStageNum == pokemonArray.length) {
-            pokemonStageNum = 0;
-        }
-        backgroundMusic = document.getElementById(pokemonArray[pokemonStageNum]);
-        backgroundMusic.volume = (0.4);
-    }  else if (stage == "wiiStudioStage") {
-        wiiStudioStageNum++;
-        if (wiiStudioStageNum == wiiStudioArray.length) {
-            wiiStudioStageNum = 0;
-        }
-        backgroundMusic = document.getElementById(wiiStudioArray[wiiStudioStageNum]);
-        backgroundMusic.volume = (0.4);
-    }   else if (stage == "wilyStage") {
-        backgroundMusic = document.getElementById(wilyStageSong);
-        backgroundMusic.volume = (0.4);
-    }   
-    backgroundMusic.play();
-} 
+//     // Song Selection Family is selected based on parameter
+//     // song select number are the *StageNum's - need to incremented then checked to ensure not over the array size
+//     if (stage == "battlefield"){
+//         battlefieldStageNum++;
+//         if (battlefieldStageNum == battlefieldArray.length) {
+//             battlefieldStageNum = 0;
+//         }
+//         backgroundMusic = document.getElementById(battlefieldArray[battlefieldStageNum]);
+//         backgroundMusic.volume = (0.4);
+//     } else if (stage == "marioStage") {
+//         marioStageNum++;
+//         if (marioStageNum == marioArray.length) {
+//             marioStageNum = 0;
+//         }
+//         backgroundMusic = document.getElementById(marioArray[marioStageNum]);
+//         backgroundMusic.volume = (0.4);
+//     }  else if (stage == "zeldaStage") {
+//         hyruleStageNum++;
+//         if (hyruleStageNum == hyruleArray.length) {
+//             hyruleStageNum = 0;
+//         }
+//         backgroundMusic = document.getElementById(hyruleArray[hyruleStageNum]);
+//         backgroundMusic.volume = (0.4);
+//     }  else if (stage == "pokemonStage") {
+//         pokemonStageNum++;
+//         if (pokemonStageNum == pokemonArray.length) {
+//             pokemonStageNum = 0;
+//         }
+//         backgroundMusic = document.getElementById(pokemonArray[pokemonStageNum]);
+//         backgroundMusic.volume = (0.4);
+//     }  else if (stage == "wiiStudioStage") {
+//         wiiStudioStageNum++;
+//         if (wiiStudioStageNum == wiiStudioArray.length) {
+//             wiiStudioStageNum = 0;
+//         }
+//         backgroundMusic = document.getElementById(wiiStudioArray[wiiStudioStageNum]);
+//         backgroundMusic.volume = (0.4);
+//     }   else if (stage == "wilyStage") {
+//         backgroundMusic = document.getElementById(wilyStageSong);
+//         backgroundMusic.volume = (0.4);
+//     }   
+//     backgroundMusic.play();
+// } 
 
 // to pause background music
 function pauseMusic() {
@@ -447,7 +449,7 @@ document.onkeyup = function(pressEvent) {
             // Continue Screen?
             setTimeout(() => {
                 continueScreen();
-            }, 12000);
+            }, 8000);
         }
 
         // start a new Round
