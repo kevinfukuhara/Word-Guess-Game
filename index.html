@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Added link to the jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
+
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Javascript link/call can be found at bottom of document before closing body tag -->
 
@@ -130,16 +131,8 @@
 </head>
 
 <body>
-    
-    <p>Click the buttons to play or pause the audio.</p>
 
-    <!-- <button onclick="changeBackgroundMusic('battlefield')" type="button">Play BattleField Songs</button>
-    <button onclick="changeBackgroundMusic('marioStage')" type="button">Play Mario Songs</button>
-    <button onclick="changeBackgroundMusic('zeldaStage')" type="button">Play Zelda Songs</button>
-    <button onclick="changeBackgroundMusic('pokemonStage')" type="button">Play Pokemon Songs</button>
-    <button onclick="changeBackgroundMusic('wiiStudioStage')" type="button">Play Wii Fit Songs</button>
-    <button onclick="changeBackgroundMusic('wilyStage')" type="button">Play Mega-Man Songs</button>
-    <button onclick="pauseMusic()" type="button">Pause Background Music</button> -->
+    <!-- <p>Click the buttons to play or pause the audio.</p>
 
     <div class="stageIcon stageLink col-lg-2" data-stage="battlefieldStageSel">Play BattleField Songs</div>
     <div class="stageIcon stageLink col-lg-2" data-stage="marioStageSel">Play Mario Songs</div>
@@ -147,7 +140,7 @@
     <div class="stageIcon stageLink col-lg-2" data-stage="pokemonStageSel">Play Pokemon Songs</div>
     <div class="stageIcon stageLink col-lg-2" data-stage="wiiStudioStageSel">Play Wii Fit Songs</div>
     <div class="stageIcon stageLink col-lg-2" data-stage="wilyStageSel">Play Mega-Man Songs</div>
-    <!-- <div class="stageLink col-lg-12" data-stage="pauseMusicSel">Pause Background Music</div> -->
+    
     <div>
         <button onclick="pauseMusic()" type="button">Pause Background Music</button>
     </div>
@@ -167,7 +160,158 @@
 
     <div>Losses: <span id="lossCount-text">0</span></div>
 
-    <hr>
+    <hr> -->
+
+
+    <!-- container for the header just for the Title and Logo WHEN SMALL -->
+    <div class="container headerTitle">
+        <div class="col-sm-12" id="smashLogoBox">
+            <img src="assets/images/Super_Smash_Bros_2018_logo.png" id="smashLogo" alt="Super Smash Bros Ultimate Logo">
+        </div>
+        <div class="col-sm-12" id="wordGuessLogoBox">
+            <h1 id="gameTitle">Word-Guess Game</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- box for Stage Select buttons -->
+        <div class="col-sm-12" id="stageBox">
+
+            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="battlefieldStageSel">
+                <div class="stageWhole">
+                    <img src="assets/images/stage/43-battlefield1.jpg" class="stageImg stageLink"
+                        data-stage="battlefieldStageSel" alt="stage picture here">
+                    <div class="stageText straightenOut">
+                        BattleField
+                    </div>
+                </div>
+            </div>
+
+            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="marioStageSel">
+                <div class="stageWhole">
+                    <img src="assets/images/stage/43-goldenplainsbattlefield.jpg" class="stageImg stageLink"
+                        data-stage="battlefieldStageSel" alt="stage picture here">
+
+                    <div class="stageText straightenOut">
+                        Super Mario
+                    </div>
+                </div>
+            </div>
+
+            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="hyruleStageSel">
+                <div class="stageWhole">
+                    <img src="assets/images/stage/43-hyrulecastlebattlefield.jpg" class="stageImg stageLink"
+                        data-stage="battlefieldStageSel" alt="stage picture here">
+
+                    <div class="stageText straightenOut">
+                        Zelda
+                    </div>
+                </div>
+            </div>
+
+            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="pokemonStageSel">
+                <div class="stageWhole">
+                    <img src="assets/images/stage/43-pokemonstadiumLg.jpg" class="stageImg stageLink"
+                        data-stage="battlefieldStageSel" alt="stage picture here">
+
+                    <div class="stageText straightenOut">
+                        Pokemon
+                    </div>
+                </div>
+            </div>
+
+            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="wiiStudioStageSel">
+                <div class="stageWhole">
+                    <img src="assets/images/stage/43-wiifitstudio.jpg" class="stageImg stageLink"
+                        data-stage="battlefieldStageSel" alt="stage picture here">
+
+                    <div class="stageText straightenOut">
+                        Wii Fit
+                    </div>
+                </div>
+            </div>
+
+            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="wilyStageSel">
+                <div class="stageWhole">
+                    <img src="assets/images/stage/43wilycastle.jpg" class="stageImg stageLink"
+                        data-stage="battlefieldStageSel" alt="stage picture here">
+                    <div class="stageText straightenOut">
+                        Mega-Man
+                    </div>
+                </div>
+            </div>
+            <div id="pauseBox" class="slantBox">
+                <button onclick="pauseMusic()" id="pauseBtn" type="button">Pause Background Music</button>
+            </div>
+        </div>
+
+        <!-- box for the game with stage + current round stats -->
+        <div class="col-sm-12" id="gameMainStage">
+            <img src="assets/images/battlefield1.jpg" id="selectedStage" alt="Selected Stage Background">
+
+            <div class="currentRoundTextBox" id="wordToGuess">Word to guess: <strong><span
+                        id="unguessedWord-text">Nothing
+                        yet...</span></strong>
+            </div>
+            <div class="currentRoundTextBox" id="userGuess">You guessed: <strong><span id="userGuess-text">Nothing
+                        yet...</span></strong>
+
+            </div>
+            <div class="currentRoundTextBox" id="userGuessesArray">Letters guessed already: <strong><span
+                        id="guesses-text">Nothing yet...</span></strong>
+            </div>
+            <div class="currentRoundTextBox" id="guessesLeft">Guesses Left: <strong><span
+                        id="guessesLeft-text">26?</span></strong>
+            </div>
+
+        </div>
+
+        <!-- box for game's historical stats + instructions -->
+        <div class="col-sm-12" id="recordBox">
+            <div id="winLossBox" class="slantBox">
+                <div id="winBox">
+                    <div class="straightenOut">
+                    Wins: <span id="winCount-text">0</span>
+                    </div>
+                </div>
+
+                <div id="lossBox">
+                        <div class="straightenOut">
+                    Losses: <span id="lossCount-text">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ruleSet">
+                <p style="font-size: 22px">
+                    Rules:
+                </p>
+                <p>
+                    You are tasked with guessing the word I have generated for you. To begin, please press any letter
+                    from the alphabet. You will not be punished for selecting the same letter twice, nor a
+                    non-alphabetical letter. It'll only delay your reward - more on that later...
+                </p>
+                <p>
+                    You may select any stage of your choice and choose from the selection of music I have curated for
+                    your gaming pleasure. Some stages have multiple songs, so go ahead and press one more than once!
+                </p>
+                <p>
+                    On to rewards: you will find a neat little surprise once you have reached 10 wins!
+                    Conversely, if you acquire 10 losses... Well, I have faith in you.
+                </p>
+                <p>
+                    Have fun, and enjoy!
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- footer for title Logo when large -->
+    <div class="container footerTitle">
+
+    </div>
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>

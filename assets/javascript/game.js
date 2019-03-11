@@ -8,6 +8,7 @@ var answers = ["link", "dark pit", "wii fit trainer"];
 // var answers = ["k", "kl"];
 
 var goalAnswer;
+var userGuess;
 var unguessedWord = [];
 var guessedArray = [];
 var winCount = 0;
@@ -23,6 +24,7 @@ var guessesText = document.getElementById("guesses-text");
 var guessesLeftText = document.getElementById("guessesLeft-text");
 var winCountText = document.getElementById("winCount-text");
 var lossCountText = document.getElementById("lossCount-text");
+var userGuessText = document.getElementById("userGuess-text");
 
 // Variables used for Auditory Add-Ons:
 //  Background Music
@@ -93,6 +95,7 @@ function newRound() {
     guessesLeft = allowedGuesses;
     generateWord();
     
+    console.log(unguessedWord.join(" "));
     // update the arrays
     unguessedWordText.textContent = unguessedWord.join(" ");
     guessesText.textContent = guessedArray.join(", ");
@@ -353,6 +356,7 @@ document.onkeyup = function(pressEvent) {
     // if (letterGuess >= 'a' || letterGuess <= 'z') {
     if (letterGuess.match(legalGuess)) {
         console.log("valid");
+        userGuessText.textContent = letterGuess;
         
         // check if letterGuess has already been guessed by user!
         //      if so: continue - see if 'letterGuess' is in the 'goalAnswer' 
@@ -380,13 +384,13 @@ document.onkeyup = function(pressEvent) {
 
                 playIncorrectSnd();
             }
+            //add guessed letter to guessedArray
+            guessedArray.push(letterGuess);
+            console.log("Lastly, put " + letterGuess + " into guessedArray array"); 
         }
         else {
             console.log("You've already typed this before! - Choose another.")
-        }
-        //add guessed letter to guessedArray
-        guessedArray.push(letterGuess);
-        console.log("Lastly, put " + letterGuess + " into guessedArray array");        
+        }       
     }
 
     // update and show the following variables in HTML Doc
@@ -443,7 +447,7 @@ document.onkeyup = function(pressEvent) {
             // Continue Screen?
             setTimeout(() => {
                 continueScreen();
-            }, 15000);
+            }, 12000);
         }
 
         // start a new Round

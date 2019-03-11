@@ -1,10 +1,227 @@
-.stageIcon {
+/* Load additional fonts*/
+@font-face {
+    font-family: 'metroid-Font';
+    src: 
+	    url('../fonts/unicode.serpentb.ttf') 
+	    format('truetype');
+}
+
+@font-face {
+    font-family: 'smash-Font';
+    src: 
+	    url('../fonts/super_smash_4_1_by_pokemon_diamond-d7zxu6d.ttf') 
+	    format('truetype');
+}
+
+/* ------------------------------------
+    HTML ELEMENT Selectors
+ ------------------------------------*/
+p {
+    font-family: 'metroid-Font', sans-serif;
+    font-size: 18px;
+}
+
+ /* ------------------------------------
+    CLASS Selectors
+ ------------------------------------*/
+.container {
+    margin: 0px;
+    border: 10px solid black;
+    padding: 0;
+}
+
+ .headerTitle {
+    width:100%;
+    text-align: center;
+    visibility: show;
+    padding: 0;
+    
+}
+
+ .stageIcon {
     height: 100px;
     /* width: 20vw; */
-    width: calc(100%/8);
-    text-align: center;
+    width: 90%;
+    text-align: left;
     color:white;
     background-color: black;
-    margin: 5px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left:auto;
     display: inline-block;
+    border: 4px solid white;
+
+    padding: 5px 5% 5px 5%;
 }
+
+.stageImg {
+    height: 100%;
+    width:auto;
+    -webkit-transform: skew(11deg, 0deg);
+}
+
+.stageWhole {
+    width: 100%;
+    height: 100%;
+}
+
+.stageWhole:hover {
+    position:absolute;
+    bottom: 10px;
+    left: 10px;
+    border: 10px solid rgba(255, 255, 0, 0.904);
+    padding: 2px 0px 2px 5%;
+}
+
+.stageText {
+    display:inline-block;
+    margin-left: 10px;
+    font-family: 'metroid-Font', sans-serif;
+    font-size: 18px;
+}
+
+.currentRoundTextBox {
+    background-color: white;
+    height: auto;
+    padding: 2px 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    opacity: 0.9;
+    text-align: left;
+    position: absolute;
+    left: 8%;
+    font-family: 'smash-Font', sans-serif;
+    font-size: 18px;
+}
+
+.slantBox {
+    -webkit-transform: skew(-11deg, 0deg);
+}
+
+.straightenOut {
+    -webkit-transform: skew(11deg, 0deg);
+}
+
+/* ------------------------------------
+    ID Selectors
+ ------------------------------------*/
+#smashLogoBox {
+    padding: 10px 10px 0px 10px;
+    width: 100%;
+}
+
+#smashLogo {
+    width:100%;
+}
+
+#wordGuessLogoBox {
+    padding: 0px 10px 10px 10px;
+    width: 100%;
+    text-align: center;
+}
+#wordGuessLogoBox h1 {
+    font-size: 6vw;
+}
+
+#gameTitle {
+    font-family: 'metroid-Font', sans-serif; 
+    margin: 0px;
+}
+
+#stageBox {
+    background-image: linear-gradient(to bottom, #e80000, #7f0000);
+    text-align: center;
+    padding: 10px;
+}
+
+#pauseBox{
+    text-align: center;
+    margin: 15px auto 30px auto;
+    width: 75%;
+}
+
+#pauseBtn {
+    padding:10px 15px;
+    font-family: 'metroid-Font', sans-serif; 
+    font-size: 4vw;
+    background-color: black;
+    color: white;
+    border: 4px solid white;
+}
+
+#gameMainStage {
+    /* margin: 10px; */
+    padding: 10px;
+    background-color: black;
+    text-align:center;
+    position: relative;
+}
+
+#selectedStage {
+    width: 100%;
+}
+
+#wordToGuess {
+    top: 14%;
+}
+
+#userGuess {
+    top: 34%;
+}
+
+#userGuessesArray {
+    top: 54%;
+}
+
+#guessesLeft {
+    top: 74%;
+}
+
+#recordBox {
+    background-image: linear-gradient(to bottom, #7f0000, #e80000);
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+#winLossBox {
+    background-color: black;
+    color: white;
+    width: 90%;
+    padding: 10px;
+    /* transform-origin: bottom left; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    
+    text-align: left;
+    border: 4px solid white;
+    font-family: 'metroid-Font', sans-serif;
+    font-size: 20px;
+}
+
+#ruleSet {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 93%;
+    padding: 10px;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 4px solid white;
+    /* -webkit-transform: skew(-11deg, 0deg);  */
+}
+
+ /* ------------------------------------
+    Media Query Selectors
+ ------------------------------------*/
+
+ /* @media (max-width: 640px){
+    .headerTitle {
+        display: show;
+    }
+ } */
