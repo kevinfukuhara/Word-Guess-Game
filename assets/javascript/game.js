@@ -1,10 +1,9 @@
 // ------------------------------
 //   CREATE GLOBAL VARIABLES
 //-----------------------------
-//var answers = ["smash ball", "ganondorf", "link", "mario", "pikachu", "luigi", "kirby", "jigglypuff", "donkey kong", "bowser", "king k rool", "hyrule", "corneria", "mushroom kingdom", "pokemon stadium", "ness", "lucas", "marth", "roy", "ken", "ryu", "little mac", "jungle japes", "olimar", "wii fit trainer", "megaman", "incineroar", "fox", "captain falcon", "snake", "young link", "villager", "lucina", "king dedede", "sonic", "dark pit", "duck hunt", "inkling", "pokeball", "assist trophy", "golden hammer", "party ball", "masahiro sakurai", "nintendo", "peach", "master hand", "crazy hand", "lucario", "simon", "bayonetta", "yoshi", "samus", "dark samus", "pirahna plant"];
-
-var answers = ["link", "dark pit", "wii fit trainer"];
-
+var answers = ["smash ball", "ganondorf", "link", "mario", "pikachu", "luigi", "kirby", "jigglypuff", "donkey kong", "bowser", "king k rool", "hyrule", "corneria", "mushroom kingdom", "pokemon stadium", "ness", "lucas", "marth", "roy", "ken", "ryu", "little mac", "jungle japes", "olimar", "wii fit trainer", "megaman", "incineroar", "fox", "captain falcon", "snake", "young link", "villager", "lucina", "king dedede", "sonic", "dark pit", "duck hunt", "inkling", "pokeball", "assist trophy", "golden hammer", "party ball", "masahiro sakurai", "nintendo", "peach", "master hand", "crazy hand", "lucario", "simon", "bayonetta", "yoshi", "samus", "dark samus", "pirahna plant"];
+// Arrays used for Debugging
+// var answers = ["link", "dark pit", "wii fit trainer"];
 // var answers = ["k", "kl"];
 
 var goalAnswer;
@@ -13,7 +12,7 @@ var unguessedWord = [];
 var guessedArray = [];
 var winCount = 0;
 var lossCount = 0;
-var allowedGuesses = 5;
+var allowedGuesses = 8;
 var guessesLeft = allowedGuesses;
 var newWordNeeded = true;           // Only true if: onLoad  of Game, allowedGuesses = 0, or unguessedWord.includes("_" === false)
 var legalGuess = /^[a-z]+$/;

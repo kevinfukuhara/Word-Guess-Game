@@ -135,38 +135,8 @@
 
 <body>
 
-    <!-- <p>Click the buttons to play or pause the audio.</p>
-
-    <div class="stageIcon stageLink col-lg-2" data-stage="battlefieldStageSel">Play BattleField Songs</div>
-    <div class="stageIcon stageLink col-lg-2" data-stage="marioStageSel">Play Mario Songs</div>
-    <div class="stageIcon stageLink col-lg-2" data-stage="hyruleStageSel">Play Zelda Songs</div>
-    <div class="stageIcon stageLink col-lg-2" data-stage="pokemonStageSel">Play Pokemon Songs</div>
-    <div class="stageIcon stageLink col-lg-2" data-stage="wiiStudioStageSel">Play Wii Fit Songs</div>
-    <div class="stageIcon stageLink col-lg-2" data-stage="wilyStageSel">Play Mega-Man Songs</div>
-    
-    <div>
-        <button onclick="pauseMusic()" type="button">Pause Background Music</button>
-    </div>
-
-    <hr>
-    
-    
-    <h1>Super Smash Bros Game</h1>
-
-    <div>Word to guess: <span id="unguessedWord-text">Nothing yet...</span></div>
-
-    <div>Letters guessed already: <span id="guesses-text">Nothing yet...</span></div>
-
-    <div>Guesses Left: <span id="guessesLeft-text">26?</span></div>
-
-    <div>Wins: <span id="winCount-text">0</span></div>
-
-    <div>Losses: <span id="lossCount-text">0</span></div>
-
-    <hr> -->
-
-
     <!-- container for the header just for the Title and Logo WHEN SMALL -->
+        <!-- This will disappear when the screen gets larger than 991px -->
     <div class="container headerTitle">
         <div class="col-sm-12" id="smashLogoBox">
             <img src="assets/images/Super_Smash_Bros_2018_logo.png" id="smashLogo" alt="Super Smash Bros Ultimate Logo">
@@ -176,11 +146,11 @@
         </div>
     </div>
 
-    <!-- box for the game with stage + current round stats -->
+    <!-- Container for the entire game -->
     <div class="container">
         <div class="row">
+            <!-- Box containing the map and music selection -->
             <div class="col-sm-12 col-lg-3" id="stageBox">
-
                 <div class="col-sm-12 musicInstruction slantBox">
                     <p class="straightenOut">Please Select a Stage to Play On!</p>
                 </div>
@@ -253,6 +223,7 @@
                 </div>
             </div>
 
+            <!-- box for the game with stage + current round stats -->
             <div class="col-sm-12 col-lg-6" id="gameMainStage">
                 <img src="assets/images/stage/43-battlefield1.jpg" id="selectedStage" alt="Selected Stage Background">
 
@@ -270,6 +241,9 @@
                 <div class="currentRoundTextBox" id="guessesLeft">Guesses Left: <strong><span
                             id="guessesLeft-text">26?</span></strong>
                 </div>
+                
+                <!-- container for the header just for the Title and Logo WHEN LARGE -->
+                    <!-- This will disappear when the screen gets smaller than 992px -->
                 <div class="container footerTitle">
                     <div class="col-sm-12" id="smashLogoBoxFooter">
                         <img src="assets/images/Super_Smash_Bros_2018_logo.png" id="smashLogoFooter"
@@ -325,92 +299,7 @@
         </div>
 
 
-        <!-- box for Stage Select buttons -->
-        <!-- <div class="col-sm-12" id="stageBox">
-
-            <div class="col-sm-12 musicInstruction slantBox">
-                <p class="straightenOut">Please Select a Stage to Play On!</p>
-            </div>
-
-            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="battlefieldStageSel">
-                <div class="stageWhole">
-                    <img src="assets/images/stage/43-battlefield1.jpg" class="stageImg stageLink"
-                        data-stage="battlefieldStageSel" alt="stage picture here">
-                    <div class="stageText straightenOut">
-                        BattleField
-                    </div>
-                </div>
-            </div>
-
-            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="marioStageSel">
-                <div class="stageWhole">
-                    <img src="assets/images/stage/43-goldenplainsbattlefield.jpg" class="stageImg stageLink"
-                        data-stage="battlefieldStageSel" alt="stage picture here">
-
-                    <div class="stageText straightenOut">
-                        Super Mario
-                    </div>
-                </div>
-            </div>
-
-            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="hyruleStageSel">
-                <div class="stageWhole">
-                    <img src="assets/images/stage/43-hyrulecastlebattlefield.jpg" class="stageImg stageLink"
-                        data-stage="battlefieldStageSel" alt="stage picture here">
-
-                    <div class="stageText straightenOut">
-                        Zelda
-                    </div>
-                </div>
-            </div>
-
-            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="pokemonStageSel">
-                <div class="stageWhole">
-                    <img src="assets/images/stage/43-pokemonstadiumLg.jpg" class="stageImg stageLink"
-                        data-stage="battlefieldStageSel" alt="stage picture here">
-
-                    <div class="stageText straightenOut">
-                        Pokemon
-                    </div>
-                </div>
-            </div>
-
-            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="wiiStudioStageSel">
-                <div class="stageWhole">
-                    <img src="assets/images/stage/43-wiifitstudio.jpg" class="stageImg stageLink"
-                        data-stage="battlefieldStageSel" alt="stage picture here">
-
-                    <div class="stageText straightenOut">
-                        Wii Fit
-                    </div>
-                </div>
-            </div>
-
-            <div class="stageIcon stageLink slantBox col-xl-12" data-stage="wilyStageSel">
-                <div class="stageWhole">
-                    <img src="assets/images/stage/43wilycastle.jpg" class="stageImg stageLink"
-                        data-stage="battlefieldStageSel" alt="stage picture here">
-                    <div class="stageText straightenOut">
-                        Mega-Man
-                    </div>
-                </div>
-            </div>
-            <div id="pauseBox" class="slantBox">
-                <button onclick="pauseMusic()" id="pauseBtn" type="button">Pause Background Music</button>
-            </div>
-        </div> -->
     </div>
-    <!-- footer for title Logo when large -->
-    <!-- SAVING FOR WHEN I TRY HARDER IN ADDING RESPONSIVE BEHAVIOR -->
-    <!-- <div class="container footerTitle">
-            <div class="col-sm-12" id="smashLogoBoxFooter">
-                <img src="assets/images/Super_Smash_Bros_2018_logo.png" id="smashLogoFooter"
-                    alt="Super Smash Bros Ultimate Logo">
-            </div>
-            <div class="col-sm-12" id="wordGuessLogoBoxFooter">
-                <h1 id="gameTitle">Word-Guess Game</h1>
-            </div>
-        </div> -->
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
