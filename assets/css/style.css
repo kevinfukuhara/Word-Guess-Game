@@ -367,6 +367,10 @@ body {
         padding-top: 20px;
     }
 
+    #selectedStage { 
+        min-height: 361.28px;  
+    }
+
     #pauseBtn {
         font-size: 1.1vw;
     }
