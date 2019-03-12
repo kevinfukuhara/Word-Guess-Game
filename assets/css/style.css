@@ -299,6 +299,14 @@ body {
 } */ 
 
 @media (min-width: 992px) {
+    body {
+        
+        max-width: 1650px;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
     .container{
         overflow: none;
     }
@@ -315,7 +323,7 @@ body {
     }
 
     .currentRoundTextBox {
-        font-size: 2vw;
+        font-size: 2.025vw;
     }
 
     .footerTitle {
@@ -336,22 +344,27 @@ body {
     }
     
     #userGuess {
-        top: 12%;
+        top: 10%;
     }
     
     #userGuessesArray {
-        top: 20%;
+        top: 16%;
         max-width: 84%;
     }
     
     #guessesLeft {
-        top: 32%;
+        top: 27%;
     }
 
     .stageText {
         font-size: 1vw;
         position: absolute;
         top: 18%;
+    }
+
+    #stageBox {
+        border-right: 0px;
+        padding-top: 20px;
     }
 
     #pauseBtn {
@@ -364,11 +377,47 @@ body {
     }
 
     #ruleSet p {
-        font-size: 1.02vw;
+        font-size: 13.5px;
     }
 
     #winLossBox {
         font-size: 1.5vw;
+    }
+}
+
+@media (min-width: 1125px) {
+    #wordToGuess {
+        top: 4%;
+    }
+    
+    #userGuess {
+        top: 12%;
+    }
+    
+    #userGuessesArray {
+        top: 20%;
+    }
+    
+    #guessesLeft {
+        top: 32%;
+    }
+
+    #selectedStage {
+        max-height: 565px;
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        max-width: 1650px;
+    }
+
+    .currentRoundTextBox {
+        font-size: 1.8vw;
+    }
+
+    #wordGuessLogoBoxFooter h1 {
+        font-size: 65px;
     }
 }
 
