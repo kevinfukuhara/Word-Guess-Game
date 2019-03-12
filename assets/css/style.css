@@ -18,7 +18,7 @@
  ------------------------------------*/
 p {
     font-family: 'metroid-Font', sans-serif;
-    font-size: 18px;
+    font-size: 2vw;
 }
 
 body {
@@ -30,7 +30,9 @@ body {
  ------------------------------------*/
 .container {
     margin: 0px;
-    border: 10px solid black;
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+    border-bottom: 10px solid black;
     padding: 0;
     max-width: 100%;
 }
@@ -83,7 +85,7 @@ body {
     display:inline-block;
     margin-left: 10px;
     font-family: 'metroid-Font', sans-serif;
-    font-size: 2.25vw;
+    font-size: 3.3vw;
 }
 
 .currentRoundTextBox {
@@ -97,7 +99,7 @@ body {
     position: absolute;
     left: 8%;
     font-family: 'smash-Font', sans-serif;
-    font-size: 2.5vw;
+    font-size: 3.6vw;
 }
 
 .slantBox {
@@ -124,7 +126,7 @@ body {
 }
 
 .musicInstruction p {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
     line-height: 40px;
     padding-top: 10px;
 }
@@ -183,6 +185,9 @@ body {
     background-image: linear-gradient(to bottom, #e80000, #7f0000);
     text-align: center;
     padding: 10px;
+    border-right: 10px solid black;
+    border-left: 10px solid black;
+    border-top: 0px;
 }
 
 #pauseBox{
@@ -194,7 +199,7 @@ body {
 #pauseBtn {
     padding:10px 15px;
     font-family: 'metroid-Font', sans-serif; 
-    font-size: 2.5vw;
+    font-size: 3vw;
     background-color: black;
     color: white;
     border: 3px solid white;
@@ -225,7 +230,7 @@ body {
 }
 
 #guessesLeft {
-    top: 74%;
+    top: 80%;
 }
 
 #recordBox {
@@ -234,6 +239,7 @@ body {
     padding: 10px;
     position: relative;
     border: 10px solid black;
+    border-top: 0px;
 }
 
 #winLossBox {
@@ -268,10 +274,11 @@ body {
     /* -webkit-transform: skew(-11deg, 0deg);  */
 }
 
+
  /* ------------------------------------
     Media Query Selectors
  ------------------------------------*/
- @media (min-width: 1080px){
+ /* @media (min-width: 1080px){
      .container{
         max-width: 1080px;
         margin-left: auto;
@@ -279,86 +286,90 @@ body {
      }
 
      #gameMainStage {
-        max-width: 1080px;
-        margin-left: auto;
+        /* max-width: 1080px; */
+        /* margin-left: auto;
         margin-right: auto;
      }
 
-     #recordBox {
-        max-width: 1080px;
-        margin-left: auto;
+     #recordBox { */
+        /* max-width: 1080px; */
+        /* margin-left: auto;
         margin-right: auto;
      }
-}
+} */ 
 
- /* 
- @media (min-width: 768px){
-    .container {
-        max-width:100%;
-        margin:0;
-        border: 0px;
+@media (min-width: 992px) {
+    .container{
+        overflow: none;
     }
-    
+
     .headerTitle {
         display: none;
     }
 
-    #wordGuessLogoBoxFooter h1 {
-        font-size: 4vw;
+    .musicInstruction p {
+        font-size: 1.5vw;
+        margin:0;
+        padding-top: 0px;
+        line-height: 30px;
     }
 
-    .divMdFixer {
-        display: inline-block;
+    .currentRoundTextBox {
+        font-size: 2vw;
     }
 
     .footerTitle {
         display: block;
         background-color: white;
+        border-top: 10px solid black;
+        border-bottom: 0px;
+        border-right: 0px;
+        border-left: 0px;
     }
 
-    .stageText {
-        /* display:inline-block;
-        margin-left: 10px;
-        font-family: 'metroid-Font', sans-serif; */
-        /*font-size: 1.15vw;
+    #gameMainStage {
+        border: 0px;
     }
-
-    .currentRoundTextBox {
-        /* background-color: white;
-        height: auto;
-        padding: 2px 5px;
-        border: 2px solid black;
-        border-radius: 5px;
-        opacity: 0.9;
-        text-align: left;
-        position: absolute;
-        left: 8%;
-        font-family: 'smash-Font', sans-serif; */
-        /*//font-size: 1.5vw;
-    }
-
-    #pauseBtn {
-        /* padding:10px 15px;
-        font-family: 'metroid-Font', sans-serif;  */
-        /*font-size: 1.5vw;
-        /* background-color: black;
-        color: white;
-        border: 3px solid white; */
-    /* }
 
     #wordToGuess {
-        top: 5%;
+        top: 4%;
     }
     
     #userGuess {
-        top: 15%;
+        top: 12%;
     }
     
     #userGuessesArray {
-        top: 25%;
+        top: 20%;
+        max-width: 84%;
     }
     
     #guessesLeft {
-        top: 35%;
+        top: 32%;
     }
- } */
+
+    .stageText {
+        font-size: 1vw;
+        position: absolute;
+        top: 18%;
+    }
+
+    #pauseBtn {
+        font-size: 1.1vw;
+    }
+
+    #recordBox {
+        border: 0px;
+        background-image: background-image: linear-gradient(to bottom, #e80000, #7f0000);
+    }
+
+    #ruleSet p {
+        font-size: 1.02vw;
+    }
+
+    #winLossBox {
+        font-size: 1.5vw;
+    }
+}
+
+ 
